@@ -1,51 +1,23 @@
-<html>
-  <head>
-    <title>THe Core Tech!</title>
-    <script src="https://code.jquery.com/jquery-3.1.0.min.js" type="text/javascript"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
-  </head>
-  <body>
-    <div class="container">
-      <div class="row">
-        <div class="col s11 ">
-          <div class="section">
-            <h5>Low Level Assembly Development</h5>
-            <p>
-              This is a IO Guide for working in low level Assembly and C language with GCC, LD and NASM. Most of the informations are based on various sources but not limited to <a href="wiki.osdev.com">OS DEV Wiki</a>
-            </p>
-          </div>
-           <div class="divider"></div>
-           <div class="section">
-             <h5>Architecture</h5>
-             <p>
-               The processor we use in our system comes in various architectures as listed below. Only the most prevalent ones are given here. 
-                <ul class="collection">
-                <li class="collection-item">i386   / i686          - x86 (32 Bit processors)</li>
-                <li class="collection-item">x86_64 / AMD64 / EMT64 - x64 (64 Bit Extensions added to 32Bit processors)      </li>
-                <li class="collection-item">ia64                   (64Bit only - Itanium - Not used anymore)       </li>
-                <li class="collection-item">ARM </li>
-                </ul>
-                The above information is presented in terms of developer point of view. For eg. __i386__ instruction set is the decade older version of __i686__ instruction set which also becomes obselute. This instruction sets are used in x86 line of processors which is typically 32Bit Processors.  
-                <br />
-                i386 is compatible with i686 completely and I am using it as its very simple when compared to amd64 or arm instruction set. Later the same concepts can be applied for the newer line x64 line of processors.  
-                <br />
-                <blockquote>mov byte  ah,  2    8  Bit Processors like 8085 mov instruction     </blockquote>
-                <blockquote>mov word  ax,  2    16 Bit Processors like 8066 mov instruction  </blockquote>
-                <blockquote>mov dword eax, 2    32 Bit Processors like 80386, 80486, Pentium mov instruction   </blockquote>
-                <blockquote>mov qword rax, 2    64 Bit processors like i3/i5/i7/Core 2 Duo mov instruction   </blockquote>
-             </p>
-           </div>
-           <div class="section">
-             <h5>GCC Compiler Suite</h5>
-             <p>
-               We will be using GCC Compiler Suite to compile our C files to produce the Object files. Normally when we use the default GCC that comes with the system to compile our C Program. Its perfect for programming softrwares that run within the same OS but is limited to only that perticular host in which the program is compiled. <br>
-               
-               Therefore, we require a special compiler, knows as  <blockquote> GCC Cross Compiler </blockquote> It compiles the program to run on other hosts. 
-             </p>
-           </div>
-        </div>
-      </div>
-    </div>
-  </body>
-</html>
+---
+layout: default
+---
+
+<div class="home">
+
+  <h1 class="page-heading">Posts</h1>
+
+  <ul class="post-list">
+    {% for post in site.posts %}
+      <li>
+        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+
+        <h2>
+          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title | escape }}</a>
+        </h2>
+      </li>
+    {% endfor %}
+  </ul>
+
+  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+
+</div>
