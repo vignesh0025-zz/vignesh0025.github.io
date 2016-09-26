@@ -28,3 +28,5 @@ github_username:  vignesh0025
 markdown: kramdown
 theme: minima
 highlighter: pygments
+
+exclude: [vendor]
